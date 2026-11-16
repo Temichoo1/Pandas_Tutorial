@@ -21,3 +21,23 @@ print(df_1_duplicates)
 df_1 = df_1.drop_duplicates()
 print(df_1)
 print(df_1.shape)
+
+"""2nd step: remove unused columns"""
+df_1 = df_1.drop(columns='Not_Useful_Column')
+print(df_1)
+print(df_1.shape)
+
+"""3rd step: remove unwanted spaces especially in the first names section and will do the same for LAst name as well to be on the safe side, line 16"""
+df_1['First_Name'] = df_1['First_Name'].str.strip()
+print(df_1)
+#to be on the safe side ill do the same for Last NAme
+
+""" we can remove the data line by line
+        df_1['Last_Name'] = df_1['Last_Name'].str.strip()
+        df_1['Last_Name'] = df_1['Last_Name'].str.lstrip("...")
+        df_1['Last_Name'] = df_1['Last_Name'].str.lstrip("/")
+        df_1['Last_Name'] = df_1['Last_Name'].str.rstrip("_")
+"""
+
+df_1['Last_Name'] = df_1['Last_Name'].str.strip("123._/") #PUTTING AL THEVALUES TO BE REMOVED INTO ONE STRING
+print(df_1)
