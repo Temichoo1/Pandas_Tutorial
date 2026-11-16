@@ -61,3 +61,17 @@ df_1['Phone_Number'] = df_1['Phone_Number'].str.replace('N/a--','')
 print(df_1)
 df_1['Phone_Number'] = df_1['Phone_Number'].str.replace('--','')
 print(df_1)
+
+"""5th step: splitting the address"""
+#df_1['Address'] = df_1['Address'].str.split(',', n=2, expand=True) #we cant leave it this way as we need to split the address
+df_1[['Street_Address', 'State', 'Zip_Code']] = df_1['Address'].str.split(',', n=2, expand=True)
+print(df_1[['Street_Address', 'State', 'Zip_Code']])
+print(df_1)
+
+
+"""6th step: Paying Customer & Do_Not_Contact column entries as they are in 'Y' and 'N' format we need to amend it to be formatted properly and alligned accros board"""
+df_1['Paying Customer'] = df_1['Paying Customer'].str.replace('Yes', 'Y')
+df_1['Paying Customer'] = df_1['Paying Customer'].str.replace('No', 'N')
+df_1['Do_Not_Contact'] = df_1['Do_Not_Contact'].str.replace('Yes', 'Y')
+df_1['Do_Not_Contact'] = df_1['Do_Not_Contact'].str.replace('No', 'N')
+print(df_1)
