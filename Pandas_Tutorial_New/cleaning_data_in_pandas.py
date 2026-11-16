@@ -75,3 +75,20 @@ df_1['Paying Customer'] = df_1['Paying Customer'].str.replace('No', 'N')
 df_1['Do_Not_Contact'] = df_1['Do_Not_Contact'].str.replace('Yes', 'Y')
 df_1['Do_Not_Contact'] = df_1['Do_Not_Contact'].str.replace('No', 'N')
 print(df_1)
+
+df_1 = df_1.fillna('')
+print(df_1)
+
+"""7th: filter by customers who do not want to be contacted"""
+
+""" 
+    We can do it this wasy which is longer
+
+for x in df_1.index:
+    if df_1.loc[x, "Do_Not_Contact"] == 'Y':
+        df_1.drop(x, inplace=True)
+"""
+#this is simpler
+df_1 = df_1[df_1['Do_Not_Contact'] != 'Y']
+
+print(df_1)
