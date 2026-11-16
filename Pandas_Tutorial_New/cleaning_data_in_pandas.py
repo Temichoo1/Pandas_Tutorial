@@ -44,7 +44,7 @@ print(df_1)
 
 """4th step: formatting the phone numbers: This can be tricky because there are many types and we need it to align in the correct format"""
 #replace any invalid characters with nothing
-df_1['Phone_Number'] = df_1['Phone_Number'].str.replace('[^a-zA-Z0-9]','')
+df_1['Phone_Number'] = df_1['Phone_Number'].str.replace(r'[^0-9]', '', regex=True)
 print(df_1)
 #change the format to string
 df_1['Phone_Number'] = df_1['Phone_Number'].apply(lambda x: str(x))
@@ -58,4 +58,6 @@ print(df_1)
 df_1['Phone_Number'] = df_1['Phone_Number'].str.replace('nan--','')
 print(df_1)
 df_1['Phone_Number'] = df_1['Phone_Number'].str.replace('N/a--','')
+print(df_1)
+df_1['Phone_Number'] = df_1['Phone_Number'].str.replace('--','')
 print(df_1)
