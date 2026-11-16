@@ -88,7 +88,11 @@ for x in df_1.index:
     if df_1.loc[x, "Do_Not_Contact"] == 'Y':
         df_1.drop(x, inplace=True)
 """
-#this is simpler
+
 df_1 = df_1[df_1['Do_Not_Contact'] != 'Y']
 
+print(df_1)
+
+"""8th: drop the address column"""
+df_1 = df_1.drop(columns=['Address'])
 print(df_1)
