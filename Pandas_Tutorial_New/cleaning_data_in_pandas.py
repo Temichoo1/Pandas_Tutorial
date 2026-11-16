@@ -8,7 +8,7 @@ import pandas as pd
 
 df_1 = pd.read_excel(r"Data\Customer Call List.xlsx")
 #printing the initial dataet to see the issues before cleaning
-#introducing the shape will help us see the reductii=on and removal of any duplivcated rows
+#introducing the shape will help us see the reduction and removal of any duplicated rows
 print(df_1)
 print(df_1.shape)
 
@@ -40,4 +40,22 @@ print(df_1)
 """
 
 df_1['Last_Name'] = df_1['Last_Name'].str.strip("123._/") #PUTTING AL THEVALUES TO BE REMOVED INTO ONE STRING
+print(df_1)
+
+"""4th step: formatting the phone numbers: This can be tricky because there are many types and we need it to align in the correct format"""
+#replace any invalid characters with nothing
+df_1['Phone_Number'] = df_1['Phone_Number'].str.replace('[^a-zA-Z0-9]','')
+print(df_1)
+#change the format to string
+df_1['Phone_Number'] = df_1['Phone_Number'].apply(lambda x: str(x))
+print(df_1)
+
+#standardising the format
+df_1['Phone_Number'] = df_1['Phone_Number'].apply(lambda x: x[0:3] + '-' + x[3:6] + '-' + x[6:10])
+print(df_1)
+
+#replacing nan-- and  N/a-- 
+df_1['Phone_Number'] = df_1['Phone_Number'].str.replace('nan--','')
+print(df_1)
+df_1['Phone_Number'] = df_1['Phone_Number'].str.replace('N/a--','')
 print(df_1)
