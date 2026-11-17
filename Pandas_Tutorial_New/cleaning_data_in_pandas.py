@@ -98,6 +98,8 @@ df_1 = df_1.drop(columns=['Address'])
 print(df_1)
 
 
-""" FINAL LOOK EXPORT THE CLEANED DATA TO CSV  """
-
+""" EXPORT THE CLEANED DATA TO CSV  """
 df_1.to_csv(r'Data\Cleaned_Customer_Call_List_Data.csv', index=False)
+
+""" EXPORT THE CLEANED DATA TO EXCEL  """
+df_1.to_excel(r'Data\Cleaned_Customer_Call_List_Data.xlsx', index=False)
