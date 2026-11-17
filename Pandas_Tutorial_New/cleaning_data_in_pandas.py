@@ -96,3 +96,8 @@ print(df_1)
 """8th: drop the address column"""
 df_1 = df_1.drop(columns=['Address'])
 print(df_1)
+
+
+""" FINAL LOOK EXPORT THE CLEANED DATA TO CSV  """
+
+df_1.to_csv(r'Data\Cleaned_Customer_Call_List_Data.csv', index=False)
